@@ -1,0 +1,28 @@
+{
+  "name": "blog-mvc-admin",
+  "version": "1.0.0",
+  "description": "Blog with MVC pattern and admin panel",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [
+    "blog",
+    "mvc",
+    "express",
+    "nunjucks"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nunjucks": "^3.2.4",
+    "sanitize-html": "^2.11.0",
+    "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
