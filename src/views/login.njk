@@ -1,0 +1,48 @@
+{% extends "layout.njk" %} {% block content %}
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">
+            <i class="bi bi-shield-lock"></i> Admin Login
+          </h3>
+
+          {% if error %}
+          <div class="alert alert-danger" role="alert">
+            {{ error }}
+          </div>
+          {% endif %}
+
+          <form action="/login" method="POST">
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Enter admin password"
+                required
+                autofocus
+              />
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-box-arrow-in-right"></i> Login
+              </button>
+            </div>
+          </form>
+
+          <div class="text-center mt-3">
+            <a href="/" class="text-muted small">
+              <i class="bi bi-arrow-left"></i> Back to site
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
