@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Getting Started with Node.js",
+      "slug": "getting-started-with-nodejs",
+      "excerpt": "Learn the basics of Node.js and how to build your first server-side application.",
+      "content": "<p>Node.js is a powerful JavaScript runtime built on Chrome's V8 JavaScript engine. It allows you to build scalable network applications using JavaScript on the server side.</p><p>In this guide, we'll explore the fundamentals and create a simple web server.</p>",
+      "author": "John Doe",
+      "createdAt": "2025-01-15T10:00:00.000Z",
+      "updatedAt": "2025-01-15T10:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "title": "Understanding the MVC Pattern",
+      "slug": "understanding-mvc-pattern",
+      "excerpt": "The Model-View-Controller pattern is a fundamental architectural pattern for building web applications.",
+      "content": "<p>MVC stands for Model-View-Controller. It's an architectural pattern that separates an application into three main components:</p><ul><li><strong>Model:</strong> Manages the data and business logic</li><li><strong>View:</strong> Handles the display and presentation</li><li><strong>Controller:</strong> Acts as an interface between Model and View</li></ul><p>This separation makes your code more organized and maintainable.</p>",
+      "author": "Jane Smith",
+      "createdAt": "2025-02-10T14:30:00.000Z",
+      "updatedAt": "2025-02-10T14:30:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "Introduction to Nunjucks Templating",
+      "slug": "introduction-to-nunjucks-templating",
+      "excerpt": "Nunjucks is a rich and powerful templating language for JavaScript.",
+      "content": "<p>Nunjucks is inspired by Jinja2 and provides a clean syntax for creating dynamic HTML templates.</p><p>Key features include:</p><ul><li>Template inheritance</li><li>Filters and functions</li><li>Macros for reusable components</li><li>Asynchronous rendering support</li></ul><p>It's perfect for server-side rendering with Express!</p>",
+      "author": "John Doe",
+      "createdAt": "2025-03-05T09:15:00.000Z",
+      "updatedAt": "2025-11-06T08:57:14.410Z"
+    }
+  ],
+  "nextId": 5
+}
