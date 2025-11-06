@@ -1,0 +1,9 @@
+{% extends "layout.njk" %} {% block content %}
+<div class="container text-center my-5">
+  <h1 class="display-1">
+    {% if error.status %}{{ error.status }}{% else %}Error{% endif %}
+  </h1>
+  <p class="lead">{{ message }}</p>
+  <a href="/" class="btn btn-primary mt-3">Go back home</a>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.njk" %} {% block content %}
+<article class="container">
+  <header class="mb-4">
+    <h1 class="display-4">{{ post.title }}</h1>
+    <p class="text-muted">
+      <i class="bi bi-person"></i> {{ post.author }} |
+      <i class="bi bi-calendar"></i> {{ post.createdAt | date('MMMM D, YYYY') }}
+      {% if post.updatedAt !== post.createdAt %}
+      <span class="text-muted small"
+        >(Updated: {{ post.updatedAt | date('MMMM D, YYYY') }})</span
+      >
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="post-content">
+    {{ post.content | safe }}
+  </div>
+
+  <footer class="mt-4">
+    <a href="/posts" class="btn btn-outline-secondary">
+      <i class="bi bi-arrow-left"></i> Back to all posts
+    </a>
+  </footer>
+</article>
+{% endblock %}
