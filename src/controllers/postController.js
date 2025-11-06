@@ -1,13 +1,26 @@
 import * as postModel from "../models/postModel.js";
 
 /**
- * Display all posts (public view)
+ * Display all posts (public view) with pagination
  */
 export async function index(req, res) {
   try {
-    const posts = await postModel.getAllPosts();
+    const page = parseInt(req.query.page) || 1;
+    const limit = 6; // Posts per page
+    const allPosts = await postModel.getAllPosts();
+
+    // Calculate pagination
+    const totalPosts = allPosts.length;
+    const totalPages = Math.ceil(totalPosts / limit);
+    const offset = (page - 1) * limit;
+    const posts = allPosts.slice(offset, offset + limit);
+
     res.render("posts/index.njk", {
       posts,
+      currentPage: page,
+      totalPages,
+      hasPrevious: page > 1,
+      hasNext: page < totalPages,
       title: "Blog Posts",
     });
   } catch (error) {

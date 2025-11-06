@@ -1,22 +1,34 @@
 import * as postModel from "../models/postModel.js";
 
 /**
- * Display admin dashboard with all posts
+ * Display admin dashboard with all posts and pagination
  */
 export async function index(req, res) {
   try {
     const searchQuery = req.query.search || "";
-    let posts;
+    const page = parseInt(req.query.page) || 1;
+    const limit = 10; // Posts per page in admin
+    let allPosts;
 
     if (searchQuery) {
-      posts = await postModel.searchPosts(searchQuery);
+      allPosts = await postModel.searchPosts(searchQuery);
     } else {
-      posts = await postModel.getAllPosts();
+      allPosts = await postModel.getAllPosts();
     }
+
+    // Calculate pagination
+    const totalPosts = allPosts.length;
+    const totalPages = Math.ceil(totalPosts / limit);
+    const offset = (page - 1) * limit;
+    const posts = allPosts.slice(offset, offset + limit);
 
     res.render("admin/posts/index.njk", {
       posts,
       searchQuery,
+      currentPage: page,
+      totalPages,
+      hasPrevious: page > 1,
+      hasNext: page < totalPages,
       title: "Admin - Manage Posts",
     });
   } catch (error) {
