@@ -1,21 +1,4 @@
-<!--
-  Frequently Asked Questions / Häufig gestellte Fragen
-
-  Purpose / Zweck:
-  - Answer common questions about the project / Häufige Fragen zum Projekt beantworten
-  - Provide quick solutions to common problems / Schnelle Lösungen für häufige Probleme bieten
-  - Help users get started quickly / Benutzern helfen, schnell zu beginnen
-
-  Categories / Kategorien:
-  - General Questions / Allgemeine Fragen
-  - Installation & Setup / Installation & Einrichtung
-  - Usage & Features / Nutzung & Funktionen
-  - Troubleshooting / Fehlerbehebung
--->
-
-# Frequently Asked Questions (FAQ)
-
-Common questions and answers about the Blog MVC Admin application.
+# Frequently Asked Questions (FAQ)Common questions and answers about the Blog MVC Admin application.
 
 ## Table of Contents
 

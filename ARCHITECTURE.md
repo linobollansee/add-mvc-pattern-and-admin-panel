@@ -1,21 +1,4 @@
-<!--
-  Architecture Documentation / Architektur-Dokumentation
-
-  Purpose / Zweck:
-  - Explain MVC pattern implementation / MVC-Pattern-Implementierung erklären
-  - Document system components and their interactions / Systemkomponenten und ihre Interaktionen dokumentieren
-  - Show request flow and data flow / Anfrage-Fluss und Daten-Fluss zeigen
-
-  Key Topics / Hauptthemen:
-  - MVC Architecture / MVC-Architektur
-  - Request Flow / Anfrage-Fluss
-  - Module Responsibilities / Modul-Verantwortlichkeiten
-  - Authentication System / Authentifizierungssystem
--->
-
-# Application Architecture Guide
-
-## 📋 Overview
+# Application Architecture Guide## 📋 Overview
 
 This is a blog application built with the **MVC (Model-View-Controller)** pattern using Express.js, TypeScript, and Nunjucks templates.
 

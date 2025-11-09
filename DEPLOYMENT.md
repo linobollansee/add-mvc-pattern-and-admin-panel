@@ -1,20 +1,4 @@
-<!--
-  Deployment Guide / Bereitstellungsanleitung
-
-  Purpose / Zweck:
-  - Guide production deployment process / Produktions-Bereitstellungsprozess anleiten
-  - Document platform-specific configurations / Plattformspezifische Konfigurationen dokumentieren
-  - Provide SSL, monitoring, and backup strategies / SSL-, Monitoring- und Backup-Strategien bereitstellen
-
-  Supported Platforms / Unterstützte Plattformen:
-  - Railway, Render, Heroku (PaaS)
-  - DigitalOcean, VPS (IaaS)
-  - Docker Containers / Docker-Container
--->
-
-# Deployment Guide
-
-Complete guide for deploying the Blog MVC Admin application to production.
+# Deployment GuideComplete guide for deploying the Blog MVC Admin application to production.
 
 ## Table of Contents
 

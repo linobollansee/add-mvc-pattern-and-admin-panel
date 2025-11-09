@@ -1,20 +1,4 @@
-<!--
-  Changelog / Änderungsprotokoll
-
-  Purpose / Zweck:
-  - Document version history and changes / Versionshistorie und Änderungen dokumentieren
-  - Track new features, bug fixes, and breaking changes / Neue Funktionen, Fehlerbehebungen und Breaking Changes verfolgen
-  - Provide upgrade guides / Upgrade-Anleitungen bereitstellen
-
-  Format / Format:
-  - Follows Keep a Changelog standard / Folgt Keep a Changelog-Standard
-  - Uses Semantic Versioning / Verwendet semantische Versionierung
-  - Organized by release date / Nach Veröffentlichungsdatum organisiert
--->
-
-# Changelog
-
-All notable changes to the Blog MVC Admin project will be documented in this file.
+# ChangelogAll notable changes to the Blog MVC Admin project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).

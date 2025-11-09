@@ -1,22 +1,4 @@
-<!--
-  Security Documentation / Sicherheits-Dokumentation
-
-  Purpose / Zweck:
-  - Document security features and vulnerabilities / Sicherheitsfunktionen und Schwachstellen dokumentieren
-  - Provide security best practices / Sicherheits-Best-Practices bereitstellen
-  - Explain vulnerability reporting process / Schwachstellen-Meldeprozess erklären
-
-  Key Topics / Hauptthemen:
-  - Authentication & Authorization / Authentifizierung & Autorisierung
-  - Session Management / Session-Verwaltung
-  - XSS Prevention / XSS-Prävention
-  - CSRF Protection / CSRF-Schutz
-  - Production Security Checklist / Produktions-Sicherheits-Checkliste
--->
-
-# Security Policy
-
-Security best practices and vulnerability reporting for the Blog MVC Admin application.
+# Security PolicySecurity best practices and vulnerability reporting for the Blog MVC Admin application.
 
 ## Table of Contents
 

@@ -1,20 +1,4 @@
-<!--
-  Testing Guide / Test-Anleitung
-
-  Purpose / Zweck:
-  - Document testing strategy and best practices / Teststrategie und Best Practices dokumentieren
-  - Provide examples for unit, integration, and E2E tests / Beispiele für Unit-, Integrations- und E2E-Tests bereitstellen
-  - Explain test setup and configuration / Test-Setup und Konfiguration erklären
-
-  Testing Pyramid / Test-Pyramide:
-  - 70% Unit Tests / 70% Unit-Tests
-  - 20% Integration Tests / 20% Integrations-Tests
-  - 10% E2E Tests / 10% E2E-Tests
--->
-
-# Testing Guide
-
-Complete guide to testing the Blog MVC Admin application.
+# Testing GuideComplete guide to testing the Blog MVC Admin application.
 
 ## Table of Contents
 

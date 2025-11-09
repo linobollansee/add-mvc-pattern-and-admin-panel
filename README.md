@@ -1,22 +1,4 @@
-<!--
-  Blog MVC Admin - Project README / Blog MVC Admin - Projekt README
-  This is the main documentation file for the blog application / Dies ist die Hauptdokumentationsdatei für die Blog-Anwendung
-
-  Purpose / Zweck:
-  - Provide project overview and quick start guide / Projektübersicht und Schnellstartanleitung bereitstellen
-  - List features and tech stack / Funktionen und Tech-Stack auflisten
-  - Installation and usage instructions / Installations- und Nutzungsanweisungen
-
-  Related Documentation / Verwandte Dokumentation:
-  - SETUP.md - Detailed installation guide / Detaillierte Installationsanleitung
-  - ARCHITECTURE.md - System architecture / Systemarchitektur
-  - API.md - API reference / API-Referenz
-  - SECURITY.md - Security best practices / Sicherheits-Best-Practices
--->
-
-# Blog MVC Admin
-
-A full-featured blog application built with Express.js, TypeScript, and the MVC (Model-View-Controller) pattern. Includes an admin panel for managing blog posts with authentication and a WYSIWYG editor.
+# Blog MVC AdminA full-featured blog application built with Express.js, TypeScript, and the MVC (Model-View-Controller) pattern. Includes an admin panel for managing blog posts with authentication and a WYSIWYG editor.
 
 ## Features
 

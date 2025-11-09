@@ -1,21 +1,4 @@
-<!--
-  Setup and Installation Guide / Einrichtungs- und Installationsanleitung
-
-  Purpose / Zweck:
-  - Provide step-by-step installation instructions / Schritt-für-Schritt-Installationsanweisungen bereitstellen
-  - Explain environment configuration / Umgebungskonfiguration erklären
-  - Troubleshoot common setup issues / Häufige Einrichtungsprobleme beheben
-
-  Sections / Abschnitte:
-  - Prerequisites / Voraussetzungen
-  - Installation Steps / Installationsschritte
-  - Environment Configuration / Umgebungskonfiguration
-  - IDE Setup / IDE-Einrichtung
--->
-
-# Setup Guide
-
-Complete installation and configuration guide for the Blog MVC Admin application.
+# Setup GuideComplete installation and configuration guide for the Blog MVC Admin application.
 
 ## Table of Contents
 

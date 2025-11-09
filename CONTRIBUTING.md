@@ -1,21 +1,4 @@
-<!--
-  Contributing Guidelines / Beitragsrichtlinien
-
-  Purpose / Zweck:
-  - Define code standards and contribution process / Code-Standards und Beitragsprozess definieren
-  - Provide development workflow guidelines / Entwicklungs-Workflow-Richtlinien bereitstellen
-  - Explain commit conventions and PR process / Commit-Konventionen und PR-Prozess erklären
-
-  Key Sections / Hauptabschnitte:
-  - Code of Conduct / Verhaltenskodex
-  - Development Workflow / Entwicklungs-Workflow
-  - Coding Standards / Coding-Standards
-  - Testing Guidelines / Test-Richtlinien
--->
-
-# Contributing Guide
-
-Thank you for considering contributing to the Blog MVC Admin project! This guide will help you get started.
+# Contributing GuideThank you for considering contributing to the Blog MVC Admin project! This guide will help you get started.
 
 ## Table of Contents
 
