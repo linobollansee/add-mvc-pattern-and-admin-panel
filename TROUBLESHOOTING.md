@@ -1,3 +1,18 @@
+<!--
+  Troubleshooting Guide / Fehlerbehebungsanleitung
+
+  Purpose / Zweck:
+  - Provide solutions for common issues / Lösungen für häufige Probleme bereitstellen
+  - Help developers diagnose problems / Entwicklern bei der Problemdiagnose helfen
+  - Document known issues and workarounds / Bekannte Probleme und Workarounds dokumentieren
+
+  Categories / Kategorien:
+  - Installation Issues / Installationsprobleme
+  - Runtime Errors / Laufzeitfehler
+  - Authentication Problems / Authentifizierungsprobleme
+  - Deployment Problems / Bereitstellungsprobleme
+-->
+
 # Troubleshooting Guide
 
 Common issues and solutions for the Blog MVC Admin application.
