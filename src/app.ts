@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import session from "express-session";
 import dotenv from "dotenv";
 import nunjucks from "nunjucks";
@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 import postRoutes from "./routes/postRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import "./types/Session.js";
 
 // Load environment variables
 dotenv.config();
@@ -25,9 +26,9 @@ const env = nunjucks.configure(path.join(__dirname, "views"), {
 });
 
 // Add custom date filter
-env.addFilter("date", function (dateString, format) {
+env.addFilter("date", function (dateString: string, format: string): string {
   const date = new Date(dateString);
-  const options = {
+  const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -38,7 +39,7 @@ env.addFilter("date", function (dateString, format) {
 });
 
 // Add truncate filter
-env.addFilter("truncate", function (str, length) {
+env.addFilter("truncate", function (str: string, length: number): string {
   if (str.length > length) {
     return str.substring(0, length) + "...";
   }
@@ -68,7 +69,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../public")));
 
 // Routes
-app.get("/", (req, res) => {
+app.get("/", (_req: Request, res: Response) => {
   res.redirect("/posts");
 });
 
@@ -77,7 +78,7 @@ app.use("/posts", postRoutes);
 app.use("/admin", adminRoutes);
 
 // 404 handler
-app.use((req, res) => {
+app.use((_req: Request, res: Response) => {
   res.status(404).render("error.njk", {
     message: "Page not found",
     error: { status: 404 },
@@ -86,7 +87,7 @@ app.use((req, res) => {
 });
 
 // Error handler
-app.use((err, req, res, next) => {
+app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   console.error(err.stack);
   res.status(500).render("error.njk", {
     message: "Something went wrong!",
