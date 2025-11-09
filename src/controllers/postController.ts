@@ -1,11 +1,12 @@
+import { Request, Response } from "express";
 import * as postModel from "../models/postModel.js";
 
 /**
  * Display all posts (public view) with pagination
  */
-export async function index(req, res) {
+export async function index(req: Request, res: Response): Promise<void> {
   try {
-    const page = parseInt(req.query.page) || 1;
+    const page = parseInt(req.query.page as string) || 1;
     const limit = 6; // Posts per page
     const allPosts = await postModel.getAllPosts();
 
@@ -35,15 +36,16 @@ export async function index(req, res) {
 /**
  * Display a single post by slug
  */
-export async function show(req, res) {
+export async function show(req: Request, res: Response): Promise<void> {
   try {
     const post = await postModel.getPostBySlug(req.params.slug);
 
     if (!post) {
-      return res.status(404).render("error.njk", {
+      res.status(404).render("error.njk", {
         message: "Post not found",
         error: { status: 404 },
       });
+      return;
     }
 
     res.render("posts/show.njk", {

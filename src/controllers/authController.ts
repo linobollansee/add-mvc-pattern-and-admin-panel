@@ -1,10 +1,13 @@
+import { Request, Response } from "express";
+
 /**
  * Display login form
  */
-export function showLogin(req, res) {
+export function showLogin(req: Request, res: Response): void {
   // If already authenticated, redirect to admin
   if (req.session && req.session.isAuthenticated) {
-    return res.redirect("/admin/posts");
+    res.redirect("/admin/posts");
+    return;
   }
 
   res.render("login.njk", {
@@ -16,7 +19,7 @@ export function showLogin(req, res) {
 /**
  * Handle login submission
  */
-export function handleLogin(req, res) {
+export function handleLogin(req: Request, res: Response): void {
   const { password } = req.body;
 
   // Simple password check against environment variable
@@ -27,7 +30,8 @@ export function handleLogin(req, res) {
     const returnTo = req.session.returnTo || "/admin/posts";
     delete req.session.returnTo;
 
-    return res.redirect(returnTo);
+    res.redirect(returnTo);
+    return;
   }
 
   // Login failed
@@ -40,7 +44,7 @@ export function handleLogin(req, res) {
 /**
  * Handle logout
  */
-export function handleLogout(req, res) {
+export function handleLogout(req: Request, res: Response): void {
   req.session.destroy((err) => {
     if (err) {
       console.error("Logout error:", err);

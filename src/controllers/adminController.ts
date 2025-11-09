@@ -1,12 +1,13 @@
+import { Request, Response } from "express";
 import * as postModel from "../models/postModel.js";
 
 /**
  * Display admin dashboard with all posts and pagination
  */
-export async function index(req, res) {
+export async function index(req: Request, res: Response): Promise<void> {
   try {
-    const searchQuery = req.query.search || "";
-    const page = parseInt(req.query.page) || 1;
+    const searchQuery = (req.query.search as string) || "";
+    const page = parseInt(req.query.page as string) || 1;
     const limit = 10; // Posts per page in admin
     let allPosts;
 
@@ -43,7 +44,7 @@ export async function index(req, res) {
 /**
  * Display form to create a new post
  */
-export async function create(req, res) {
+export async function create(_req: Request, res: Response): Promise<void> {
   res.render("admin/posts/edit.njk", {
     post: null,
     title: "Admin - Create Post",
@@ -53,16 +54,17 @@ export async function create(req, res) {
 /**
  * Handle post creation
  */
-export async function store(req, res) {
+export async function store(req: Request, res: Response): Promise<void> {
   try {
     const { title, excerpt, content, author } = req.body;
 
     if (!title || !excerpt || !content) {
-      return res.status(400).render("admin/posts/edit.njk", {
+      res.status(400).render("admin/posts/edit.njk", {
         post: req.body,
         error: "Title, excerpt, and content are required",
         title: "Admin - Create Post",
       });
+      return;
     }
 
     const newPost = await postModel.createPost({
@@ -90,15 +92,16 @@ export async function store(req, res) {
 /**
  * Display form to edit an existing post
  */
-export async function edit(req, res) {
+export async function edit(req: Request, res: Response): Promise<void> {
   try {
     const post = await postModel.getPostById(req.params.id);
 
     if (!post) {
-      return res.status(404).render("error.njk", {
+      res.status(404).render("error.njk", {
         message: "Post not found",
         error: { status: 404 },
       });
+      return;
     }
 
     res.render("admin/posts/edit.njk", {
@@ -117,16 +120,17 @@ export async function edit(req, res) {
 /**
  * Handle post update
  */
-export async function update(req, res) {
+export async function update(req: Request, res: Response): Promise<void> {
   try {
     const { title, excerpt, content, author } = req.body;
 
     if (!title || !excerpt || !content) {
-      return res.status(400).render("admin/posts/edit.njk", {
+      res.status(400).render("admin/posts/edit.njk", {
         post: { ...req.body, id: req.params.id },
         error: "Title, excerpt, and content are required",
         title: "Admin - Edit Post",
       });
+      return;
     }
 
     const updatedPost = await postModel.updatePost(req.params.id, {
@@ -154,7 +158,7 @@ export async function update(req, res) {
 /**
  * Handle post deletion
  */
-export async function destroy(req, res) {
+export async function destroy(req: Request, res: Response): Promise<void> {
   try {
     const success = await postModel.deletePost(req.params.id);
 
