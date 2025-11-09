@@ -1,3 +1,18 @@
+<!--
+  Product Roadmap / Produkt-Roadmap
+
+  Purpose / Zweck:
+  - Outline future development plans / Zukünftige Entwicklungspläne skizzieren
+  - Communicate planned features to community / Geplante Funktionen an Community kommunizieren
+  - Track progress toward major milestones / Fortschritt zu wichtigen Meilensteinen verfolgen
+
+  Version Planning / Versionsplanung:
+  - v2.0 - Database Era / Datenbank-Ära
+  - v2.1 - Content Revolution / Content-Revolution
+  - v3.0 - Publishing Pro / Publishing-Profi
+  - v4.0 - Enterprise / Unternehmen
+-->
+
 # Product Roadmap
 
 Future plans and feature development timeline for the Blog MVC Admin project.
