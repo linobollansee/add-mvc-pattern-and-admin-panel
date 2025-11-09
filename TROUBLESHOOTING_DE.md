@@ -70,21 +70,21 @@ error TS2307: Cannot find module './types/Post.js'
    ```json
    {
      "compilerOptions": {
-       "module": "ESNext",
+       "module": "CommonJS",
        "moduleResolution": "node",
        "esModuleInterop": true
      }
    }
    ```
 
-2. **.js-Erweiterung in Importen verwenden:**
+2. **KEINE .js-Erweiterung in Importen verwenden:**
 
    ```typescript
    // ✅ Korrekt
-   import { Post } from "./types/Post.js";
+   import { Post } from "./types/Post";
 
    // ❌ Falsch
-   import { Post } from "./types/Post";
+   import { Post } from "./types/Post.js";
    ```
 
 3. **Bereinigen und neu erstellen:**

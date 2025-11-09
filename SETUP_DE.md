@@ -461,12 +461,12 @@ error TS2307: Cannot find module './types/Post.js'
 ```
 
 **Lösung:**
-Stellen Sie sicher, dass `tsconfig.json` korrekte Einstellungen hat:
+Stellen Sie sicher, dass `tsconfig.json` die korrekten Einstellungen hat:
 
 ```json
 {
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "esModuleInterop": true
   }

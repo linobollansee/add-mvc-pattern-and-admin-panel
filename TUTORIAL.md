@@ -101,7 +101,7 @@ Create `tsconfig.json`:
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ESNext",
+    "module": "CommonJS",
     "lib": ["ES2022"],
     "moduleResolution": "node",
     "rootDir": "./src",
@@ -150,12 +150,11 @@ Add these scripts to your `package.json`:
 
 ```json
 {
-  "type": "module",
   "scripts": {
     "build": "tsc",
     "postbuild": "xcopy /E /I /Y src\\views dist\\views && xcopy /E /I /Y src\\data dist\\data",
     "start": "node dist/app.js",
-    "dev": "nodemon --exec ts-node --esm src/app.ts",
+    "dev": "nodemon --exec ts-node src/app.ts",
     "watch": "tsc --watch",
     "clean": "rimraf dist",
     "prebuild": "npm run clean"
@@ -249,17 +248,13 @@ export {};
 ```typescript
 import fs from "fs/promises";
 import path from "path";
-import { fileURLToPath } from "url";
 import sanitizeHtml from "sanitize-html";
 import type {
   Post,
   PostData,
   CreatePostInput,
   UpdatePostInput,
-} from "../types/Post.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+} from "../types/Post";
 
 const DATA_FILE = path.join(__dirname, "../data/posts.json");
 
@@ -1333,17 +1328,13 @@ import session from "express-session";
 import dotenv from "dotenv";
 import nunjucks from "nunjucks";
 import path from "path";
-import { fileURLToPath } from "url";
-import postRoutes from "./routes/postRoutes.js";
-import adminRoutes from "./routes/adminRoutes.js";
-import authRoutes from "./routes/authRoutes.js";
-import "./types/Session.js";
+import postRoutes from "./routes/postRoutes";
+import adminRoutes from "./routes/adminRoutes";
+import authRoutes from "./routes/authRoutes";
+import "./types/Session";
 
 // Load environment variables
 dotenv.config();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 3000;
@@ -1612,7 +1603,7 @@ const port = 3001; // or any available port
 
 ### Module Resolution Errors
 
-Make sure `"type": "module"` is in your `package.json` and all imports use `.js` extensions.
+Ensure your `tsconfig.json` uses `"module": "CommonJS"` and do NOT use `.js` extensions in imports.
 
 ### Views Not Found
 

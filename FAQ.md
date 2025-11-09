@@ -30,7 +30,7 @@ This is a full-featured blog application built with the MVC (Model-View-Controll
 ### What makes this different from WordPress or other CMSs?
 
 - ✅ **Lightweight** - No database required initially
-- ✅ **Modern stack** - TypeScript, Express.js, ES modules
+- ✅ **Modern stack** - TypeScript, Express.js, CommonJS modules
 - ✅ **Educational** - Well-documented code perfect for learning
 - ✅ **Customizable** - Full source code control
 - ✅ **Simple** - No complex configuration or plugins

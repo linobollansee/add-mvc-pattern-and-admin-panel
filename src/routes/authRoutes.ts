@@ -3,7 +3,7 @@
 // Behandelt Login- und Logout-Funktionalität
 
 import express from "express";
-import * as authController from "../controllers/authController.js";
+import * as authController from "../controllers/authController";
 
 // Create Express router instance / Erstelle Express-Router-Instanz
 const router = express.Router();

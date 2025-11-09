@@ -6,19 +6,13 @@
 
 import fs from "fs/promises";
 import path from "path";
-import { fileURLToPath } from "url";
 import sanitizeHtml from "sanitize-html"; // Prevents XSS attacks / Verhindert XSS-Angriffe
 import type {
   Post,
   PostData,
   CreatePostInput,
   UpdatePostInput,
-} from "../types/Post.js";
-
-// ES Module compatibility - get current file directory
-// ES-Modul-Kompatibilität - aktuelles Dateiverzeichnis ermitteln
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+} from "../types/Post";
 
 // Path to JSON database file / Pfad zur JSON-Datenbankdatei
 // Located in: src/data/posts.json / Befindet sich in: src/data/posts.json

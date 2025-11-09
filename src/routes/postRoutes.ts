@@ -3,7 +3,7 @@
 // Definiert Routen zum Anzeigen von Blog-Beiträgen (öffentlicher Zugriff, keine Authentifizierung erforderlich)
 
 import express from "express";
-import * as postController from "../controllers/postController.js";
+import * as postController from "../controllers/postController";
 
 // Create Express router instance / Erstelle Express-Router-Instanz
 const router = express.Router();

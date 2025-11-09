@@ -32,7 +32,7 @@ Dies ist eine voll ausgestattete Blog-Anwendung, die mit dem MVC-Muster (Model-V
 ### Was macht dies anders als WordPress oder andere CMS?
 
 - ✅ **Leichtgewichtig** - Keine Datenbank anfangs erforderlich
-- ✅ **Moderner Stack** - TypeScript, Express.js, ES-Module
+- ✅ **Moderner Stack** - TypeScript, Express.js, CommonJS-Module
 - ✅ **Lehrreich** - Gut dokumentierter Code, perfekt zum Lernen
 - ✅ **Anpassbar** - Volle Kontrolle über den Quellcode
 - ✅ **Einfach** - Keine komplexe Konfiguration oder Plugins

@@ -7,22 +7,16 @@ import session from "express-session";
 import dotenv from "dotenv";
 import nunjucks from "nunjucks";
 import path from "path";
-import { fileURLToPath } from "url";
 // Import route modules - each handles a specific part of the application
 // Importiere Routen-Module - jedes behandelt einen spezifischen Teil der Anwendung
-import postRoutes from "./routes/postRoutes.js"; // Public-facing blog post routes / Öffentliche Blog-Beitrags-Routen
-import adminRoutes from "./routes/adminRoutes.js"; // Protected admin panel routes / Geschützte Admin-Panel-Routen
-import authRoutes from "./routes/authRoutes.js"; // Authentication (login/logout) / Authentifizierung (Login/Logout)
-import "./types/Session.js"; // TypeScript session type extensions / TypeScript-Sitzungstyp-Erweiterungen
+import postRoutes from "./routes/postRoutes"; // Public-facing blog post routes / Öffentliche Blog-Beitrags-Routen
+import adminRoutes from "./routes/adminRoutes"; // Protected admin panel routes / Geschützte Admin-Panel-Routen
+import authRoutes from "./routes/authRoutes"; // Authentication (login/logout) / Authentifizierung (Login/Logout)
+import "./types/Session"; // TypeScript session type extensions / TypeScript-Sitzungstyp-Erweiterungen
 
 // Load environment variables from .env file (SESSION_SECRET, ADMIN_PASSWORD, etc.)
 // Lade Umgebungsvariablen aus .env-Datei (SESSION_SECRET, ADMIN_PASSWORD, etc.)
 dotenv.config();
-
-// ES Module compatibility - get current file path and directory
-// ES-Modul-Kompatibilität - hole aktuellen Dateipfad und Verzeichnis
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Create Express application instance / Erstelle Express-Anwendungsinstanz
 const app = express();

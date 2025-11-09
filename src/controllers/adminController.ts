@@ -5,7 +5,7 @@
 // ALLE FUNKTIONEN ERFORDERN AUTHENTIFIZIERUNG (erzwungen durch adminRoutes.ts)
 
 import { Request, Response } from "express";
-import * as postModel from "../models/postModel.js"; // Import database functions / Importiere Datenbankfunktionen
+import * as postModel from "../models/postModel"; // Import database functions / Importiere Datenbankfunktionen
 
 // Display admin dashboard with all posts / Zeige Admin-Dashboard mit allen Beiträgen an
 // Route: GET /admin/posts / Route: GET /admin/posts

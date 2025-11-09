@@ -470,7 +470,7 @@ Ensure `tsconfig.json` has correct settings:
 ```json
 {
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "esModuleInterop": true
   }
@@ -544,10 +544,10 @@ icacls src\data\posts.json /grant Users:F
 
 ```bash
 # Fix permissions
-chmod 666 src/data/posts.json
+   chmod 666 src/data/posts.json
 ```
 
-#### 7. Import Path Errors (.js vs .ts)
+#### 7. Import Path Errors
 
 **Error:**
 
@@ -556,19 +556,17 @@ Cannot find module './postModel' or its corresponding type declarations
 ```
 
 **Solution:**
-Always use `.js` extension in imports (TypeScript requirement for ES modules):
+Do NOT use `.js` extension in imports (TypeScript with CommonJS modules):
 
 ```typescript
 // Correct
-import * as postModel from "./models/postModel.js";
+import * as postModel from "./models/postModel";
 
 // Wrong
-import * as postModel from "./models/postModel";
+import * as postModel from "./models/postModel.js";
 ```
 
-### Getting More Help
-
-If you encounter issues not covered here:
+### Getting More HelpIf you encounter issues not covered here:
 
 1. **Check the logs** - Look at terminal output for detailed error messages
 2. **Read TROUBLESHOOTING.md** - More detailed solutions

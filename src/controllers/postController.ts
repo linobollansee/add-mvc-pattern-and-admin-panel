@@ -5,7 +5,7 @@
 // Keine Authentifizierung erforderlich - dies sind öffentliche Seiten
 
 import { Request, Response } from "express";
-import * as postModel from "../models/postModel.js"; // Import data access functions / Importiere Datenzugriffsfunktionen
+import * as postModel from "../models/postModel"; // Import data access functions / Importiere Datenzugriffsfunktionen
 
 // Display list of all blog posts (public view) / Zeige Liste aller Blog-Beiträge an (öffentliche Ansicht)
 // Route: GET /posts / Route: GET /posts

@@ -5,8 +5,8 @@
 // ALLE ROUTEN ERFORDERN AUTHENTIFIZIERUNG über requireAuth-Middleware
 
 import express from "express";
-import * as adminController from "../controllers/adminController.js";
-import { requireAuth } from "../middleware/auth.js";
+import * as adminController from "../controllers/adminController";
+import { requireAuth } from "../middleware/auth";
 
 // Create Express router instance / Erstelle Express-Router-Instanz
 const router = express.Router();
