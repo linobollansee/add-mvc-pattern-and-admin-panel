@@ -1,3 +1,17 @@
+<!--
+  Changelog / Änderungsprotokoll
+
+  Purpose / Zweck:
+  - Document version history and changes / Versionshistorie und Änderungen dokumentieren
+  - Track new features, bug fixes, and breaking changes / Neue Funktionen, Fehlerbehebungen und Breaking Changes verfolgen
+  - Provide upgrade guides / Upgrade-Anleitungen bereitstellen
+
+  Format / Format:
+  - Follows Keep a Changelog standard / Folgt Keep a Changelog-Standard
+  - Uses Semantic Versioning / Verwendet semantische Versionierung
+  - Organized by release date / Nach Veröffentlichungsdatum organisiert
+-->
+
 # Changelog
 
 All notable changes to the Blog MVC Admin project will be documented in this file.
