@@ -1,114 +1,184 @@
 # Blog MVC Admin
 
-A blog application implementing the MVC (Model-View-Controller) pattern with an Admin Control Panel (ACP) for managing blog posts.
+A full-featured blog application built with Express.js, TypeScript, and the MVC (Model-View-Controller) pattern. Includes an admin panel for managing blog posts with authentication and a WYSIWYG editor.
 
 ## Features
 
-### Core Features
+### Public Features
 
-- **MVC Pattern Implementation** - Clean separation of concerns using Models, Views, and Controllers
-- **Admin Control Panel** - Full CRUD operations for blog posts
-  - List all blog entries
-  - Create new entries
-  - Edit existing entries
-  - Delete entries
-- **WYSIWYG Editor** - Rich text editor for blog post content
-- **HTML Sanitization** - All stored HTML is sanitized for security
-- **JSON Storage** - Blog posts are stored in a JSON file
+- 📝 Browse blog posts
+- 📖 Read individual blog posts
+- 🎨 Clean, responsive interface
 
-### Optional Features
+### Admin Panel
 
-- **Basic Authentication** - Protected admin routes with login system
-- **Search Functionality** - Search through blog entries
-- **Pagination** - Paginated listing for both admin and public views
+- 🔐 Secure authentication system
+- ✏️ Create, read, update, and delete blog posts
+- 📝 WYSIWYG editor for rich content editing
+- 🧹 HTML sanitization for security
+- 📊 Manage all posts from a centralized dashboard
 
-## Technologies
+## Tech Stack
 
-- **Backend**: Express.js (Node.js)
-- **Templating**: Nunjucks
-- **Frontend**: Vanilla JavaScript
-- **Editor**: WYSIWYG editor for content management
-- **Security**: sanitize-html for HTML sanitization
+- **Backend**: Node.js, Express.js
+- **Language**: TypeScript
+- **Template Engine**: Nunjucks
 - **Session Management**: express-session
-- **Environment Config**: dotenv
+- **Security**: sanitize-html for XSS protection
+- **Data Storage**: JSON file-based storage
+
+## Project Structure
+
+```
+├── src/
+│   ├── app.ts                 # Application entry point
+│   ├── controllers/           # Business logic
+│   │   ├── adminController.ts
+│   │   ├── authController.ts
+│   │   └── postController.ts
+│   ├── models/                # Data models
+│   │   └── postModel.ts
+│   ├── views/                 # Nunjucks templates
+│   │   ├── layout.njk
+│   │   ├── login.njk
+│   │   ├── admin/            # Admin panel views
+│   │   └── posts/            # Public post views
+│   ├── routes/               # Route definitions
+│   │   ├── adminRoutes.ts
+│   │   ├── authRoutes.ts
+│   │   └── postRoutes.ts
+│   ├── middleware/           # Custom middleware
+│   │   └── auth.ts
+│   ├── types/               # TypeScript type definitions
+│   └── data/                # JSON data storage
+├── public/                  # Static assets
+│   ├── css/
+│   └── js/
+└── package.json
+```
+
+## Prerequisites
+
+- Node.js (v18 or higher recommended)
+- npm or yarn
 
 ## Installation
 
-1. Clone the repository
+1. Clone the repository:
 
 ```bash
 git clone <repository-url>
 cd add-mvc-pattern-and-admin-panel
 ```
 
-2. Install dependencies
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Create a `.env` file in the root directory (if needed for configuration)
+3. Create a `.env` file in the root directory:
+
+```env
+SESSION_SECRET=your-secret-key-here
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=your-password-here
+```
 
 ## Usage
 
-### Start the application
+### Development Mode
 
-```bash
-npm start
-```
-
-### Development mode (with auto-reload)
+Run the application with auto-reload:
 
 ```bash
 npm run dev
 ```
 
-The application will run on the configured port (default: check `src/app.js`).
+### Production Build
 
-## Project Structure
+1. Build the TypeScript code:
 
+```bash
+npm run build
 ```
-├── public/              # Static assets
-│   ├── css/            # Stylesheets
-│   └── js/             # Client-side JavaScript
-│       └── editor.js   # WYSIWYG editor integration
-├── src/
-│   ├── app.js          # Application entry point
-│   ├── controllers/    # Route controllers
-│   │   ├── adminController.js
-│   │   ├── authController.js
-│   │   └── postController.js
-│   ├── data/           # Data storage
-│   │   └── posts.json  # Blog posts database
-│   ├── middleware/     # Express middleware
-│   │   └── auth.js     # Authentication middleware
-│   ├── models/         # Data models
-│   │   └── postModel.js
-│   ├── routes/         # Route definitions
-│   │   ├── adminRoutes.js
-│   │   ├── authRoutes.js
-│   │   └── postRoutes.js
-│   └── views/          # Nunjucks templates
-│       ├── layout.njk
-│       ├── login.njk
-│       ├── error.njk
-│       ├── admin/      # Admin panel views
-│       │   ├── layout.njk
-│       │   └── posts/
-│       │       ├── index.njk
-│       │       └── edit.njk
-│       └── posts/      # Public blog views
-│           ├── index.njk
-│           └── show.njk
-└── package.json
+
+2. Start the application:
+
+```bash
+npm start
 ```
+
+### Other Commands
+
+- **Clean build directory**: `npm run clean`
+- **Watch mode** (compile on save): `npm run watch`
+
+## Accessing the Application
+
+- **Public Blog**: http://localhost:3000/posts
+- **Admin Panel**: http://localhost:3000/admin
+- **Login**: http://localhost:3000/login
+
+Default admin credentials (set in `.env`):
+
+- Username: admin
+- Password: (set via ADMIN_PASSWORD environment variable)
 
 ## MVC Architecture
 
-- **Models** (`src/models/`): Handle data logic and JSON file operations
+This project follows the Model-View-Controller pattern:
+
+- **Models** (`src/models/`): Handle data operations and business logic
 - **Views** (`src/views/`): Nunjucks templates for rendering HTML
 - **Controllers** (`src/controllers/`): Process requests and coordinate between models and views
+
+## Security Features
+
+- Session-based authentication
+- HTML sanitization to prevent XSS attacks
+- Protected admin routes with authentication middleware
+- HTTP-only cookies
+- Environment variable-based configuration
+
+## API Routes
+
+### Public Routes
+
+- `GET /` - Redirects to posts listing
+- `GET /posts` - List all blog posts
+- `GET /posts/:id` - View individual post
+
+### Auth Routes
+
+- `GET /login` - Login page
+- `POST /login` - Process login
+- `GET /logout` - Logout user
+
+### Admin Routes (Protected)
+
+- `GET /admin` - Redirects to admin posts
+- `GET /admin/posts` - List all posts (admin view)
+- `GET /admin/posts/new` - Create new post form
+- `POST /admin/posts` - Save new post
+- `GET /admin/posts/:id/edit` - Edit post form
+- `POST /admin/posts/:id` - Update post
+- `POST /admin/posts/:id/delete` - Delete post
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
 ISC
+
+## Acknowledgments
+
+Built as part of a coding challenge to implement MVC pattern and admin panel functionality.
