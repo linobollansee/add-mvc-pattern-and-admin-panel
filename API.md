@@ -1,4 +1,18 @@
-# API Reference
+<!--
+  API Reference Documentation / API-Referenzdokumentation
+
+  Purpose / Zweck:
+  - Document all API endpoints / Alle API-Endpunkte dokumentieren
+  - Provide request/response examples / Anfrage-/Antwort-Beispiele bereitstellen
+  - Explain authentication requirements / Authentifizierungsanforderungen erklären
+
+  Endpoint Categories / Endpunkt-Kategorien:
+  - Public Routes (posts) / Öffentliche Routen (Beiträge)
+  - Authentication Routes (login/logout) / Authentifizierungs-Routen (Login/Logout)
+  - Admin Routes (CRUD operations) / Admin-Routen (CRUD-Operationen)
+-->
+
+# API Documentation
 
 Complete API documentation for the Blog MVC Admin application.
 
