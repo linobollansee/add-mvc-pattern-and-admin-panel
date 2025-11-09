@@ -1,8 +1,14 @@
+import { Request, Response, NextFunction } from "express";
+
 /**
  * Authentication middleware
  * Checks if user is logged in via session
  */
-export function requireAuth(req, res, next) {
+export function requireAuth(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
   if (req.session && req.session.isAuthenticated) {
     return next();
   }

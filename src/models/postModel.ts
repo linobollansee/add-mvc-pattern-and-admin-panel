@@ -2,6 +2,12 @@ import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 import sanitizeHtml from "sanitize-html";
+import type {
+  Post,
+  PostData,
+  CreatePostInput,
+  UpdatePostInput,
+} from "../types/Post.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,7 +15,7 @@ const __dirname = path.dirname(__filename);
 const DATA_FILE = path.join(__dirname, "../data/posts.json");
 
 // Sanitize options for HTML content
-const sanitizeOptions = {
+const sanitizeOptions: sanitizeHtml.IOptions = {
   allowedTags: sanitizeHtml.defaults.allowedTags.concat(["h1", "h2", "img"]),
   allowedAttributes: {
     ...sanitizeHtml.defaults.allowedAttributes,
@@ -21,10 +27,10 @@ const sanitizeOptions = {
 /**
  * Read posts from JSON file
  */
-async function readData() {
+async function readData(): Promise<PostData> {
   try {
     const data = await fs.readFile(DATA_FILE, "utf-8");
-    return JSON.parse(data);
+    return JSON.parse(data) as PostData;
   } catch (error) {
     console.error("Error reading posts data:", error);
     return { posts: [], nextId: 1 };
@@ -34,7 +40,7 @@ async function readData() {
 /**
  * Write posts to JSON file
  */
-async function writeData(data) {
+async function writeData(data: PostData): Promise<boolean> {
   try {
     await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2), "utf-8");
     return true;
@@ -47,25 +53,27 @@ async function writeData(data) {
 /**
  * Get all posts
  */
-export async function getAllPosts() {
+export async function getAllPosts(): Promise<Post[]> {
   const data = await readData();
   return data.posts.sort(
-    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
   );
 }
 
 /**
  * Get a single post by ID
  */
-export async function getPostById(id) {
+export async function getPostById(
+  id: number | string
+): Promise<Post | undefined> {
   const data = await readData();
-  return data.posts.find((post) => post.id === parseInt(id));
+  return data.posts.find((post) => post.id === parseInt(id.toString()));
 }
 
 /**
  * Get a single post by slug
  */
-export async function getPostBySlug(slug) {
+export async function getPostBySlug(slug: string): Promise<Post | undefined> {
   const data = await readData();
   return data.posts.find((post) => post.slug === slug);
 }
@@ -73,10 +81,12 @@ export async function getPostBySlug(slug) {
 /**
  * Create a new post
  */
-export async function createPost(postData) {
+export async function createPost(
+  postData: CreatePostInput
+): Promise<Post | null> {
   const data = await readData();
 
-  const newPost = {
+  const newPost: Post = {
     id: data.nextId,
     title: postData.title,
     slug: createSlug(postData.title),
@@ -97,9 +107,14 @@ export async function createPost(postData) {
 /**
  * Update an existing post
  */
-export async function updatePost(id, postData) {
+export async function updatePost(
+  id: number | string,
+  postData: UpdatePostInput
+): Promise<Post | null> {
   const data = await readData();
-  const index = data.posts.findIndex((post) => post.id === parseInt(id));
+  const index = data.posts.findIndex(
+    (post) => post.id === parseInt(id.toString())
+  );
 
   if (index === -1) {
     return null;
@@ -122,9 +137,11 @@ export async function updatePost(id, postData) {
 /**
  * Delete a post
  */
-export async function deletePost(id) {
+export async function deletePost(id: number | string): Promise<boolean> {
   const data = await readData();
-  const index = data.posts.findIndex((post) => post.id === parseInt(id));
+  const index = data.posts.findIndex(
+    (post) => post.id === parseInt(id.toString())
+  );
 
   if (index === -1) {
     return false;
@@ -137,7 +154,7 @@ export async function deletePost(id) {
 /**
  * Search posts by title or content
  */
-export async function searchPosts(query) {
+export async function searchPosts(query: string): Promise<Post[]> {
   const data = await readData();
   const lowerQuery = query.toLowerCase();
 
@@ -148,13 +165,16 @@ export async function searchPosts(query) {
         post.excerpt.toLowerCase().includes(lowerQuery) ||
         post.content.toLowerCase().includes(lowerQuery)
     )
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    .sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
 }
 
 /**
  * Create a URL-friendly slug from a title
  */
-function createSlug(title) {
+function createSlug(title: string): string {
   return title
     .toLowerCase()
     .trim()
